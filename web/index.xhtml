@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <center>
+                <h1>All Users</h1>
+                <h:dataTable id="table" value="#{user.userList}"
+                             var="usr" border="1">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                        <h:outputText value="#{usr.i}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Username</f:facet>
+                        <h:outputText value="#{usr.name}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Email</f:facet>
+                        <h:outputText value="#{usr.email}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Password</f:facet>
+                        <h:outputText value="#{usr.password}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Gender</f:facet>
+                        <h:outputText value="#{usr.gender}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Location</f:facet>
+                        <h:outputText value="#{usr.location}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Date</f:facet>
+                        <h:outputText value="#{usr.regdate}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" >Action</f:facet>
+                        <h:form>
+                            <h:commandButton value="Update" type="submit"
+                                             action="#{user.beforeUpdate(usr)}"/>
+                            <h:commandButton value="Delete" type="submit"
+                                             action="#{user.delUser(usr.i)}"/>
+                        </h:form>
+                    </h:column>
+                </h:dataTable>
+                <br/>
+                <a href="insert.xhtml">Add New User</a>
+               
+            </center>
+        </f:view>
+    </h:body>
+</html>
+
